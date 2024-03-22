@@ -1,0 +1,19 @@
+.mainContents {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 30px auto;
+}
+
+.contentContainer {
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+}
