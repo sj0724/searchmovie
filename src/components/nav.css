@@ -19,4 +19,25 @@
   font-family: Pretendard-Regular;
   font-weight: 900;
   font-size: 40px;
+  width: 200px;
+}
+
+.menuModal {
+  font-family: Pretendard-Regular;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.search {
+  width: 200px;
+}
+
+.search input {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
 }

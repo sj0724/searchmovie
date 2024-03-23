@@ -33,7 +33,7 @@ export function Home() {
 
   const prevPage = () => {
     if (page === 1) {
-      return;
+      alert("첫 페이지 입니다!");
     } else {
       setPage(page - 1);
       setRank(rank - 20);
@@ -73,9 +73,9 @@ export function Home() {
         </div>
       </div>
       <div className="buttonGroup">
-        <Button onClick={prevPage}>이전 페이지</Button>
-        <Button onClick={handleLanguage}>언어 교체</Button>
-        <Button onClick={nextPage}>다음 페이지</Button>
+        <Button onClick={prevPage}>이전</Button>
+        <Button onClick={handleLanguage}>Language</Button>
+        <Button onClick={nextPage}>다음</Button>
       </div>
       <Footer />
       {disable && <Popup detail={detail} setDisable={setDisable} />}
