@@ -1,3 +1,5 @@
+@import url("./font.css");
+
 * {
   box-sizing: border-box;
 }
@@ -19,15 +21,23 @@ p {
 }
 
 .rank {
+  font-family: Pretendard-Regular;
   font-size: 40px;
-  font-weight: 700;
-  top: 5px;
-  left: 10px;
-  width: 100%;
+  font-weight: 900;
+  top: -5px;
+  left: -5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px 0 8px 0;
   position: absolute;
+  background-color: #903749;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.rank p {
   color: white;
-  -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: black;
 }
 
 .detail {
@@ -46,8 +56,9 @@ p {
 }
 
 .title {
+  font-family: Pretendard-Regular;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 800;
   color: white;
   position: absolute;
   bottom: 5px;

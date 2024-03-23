@@ -10,7 +10,9 @@ function MovieContent({ item, rank, handleDetail }) {
     <>
       <div className="movieContent">
         <img src={`${imageUrl}${item.poster_path}`} alt="poster" />
-        <div className="rank">{rank}</div>
+        <div className="rank">
+          <p>{rank}</p>
+        </div>
         <div className="detail" onClick={settingDetail}>
           <p className="title">{item.title}</p>
         </div>

@@ -5,8 +5,10 @@ import Nav from "./Nav.js";
 import "./home.css";
 import Footer from "./Footer.js";
 import Popup from "./Popup.js";
+import Button from "./Button.js";
 
 export function Home() {
+  const [language, setLanguage] = useState();
   const [page, setPage] = useState(1);
   const [movieChart, setMovieChart] = useState([]);
   const [rank, setRank] = useState(0);
@@ -38,6 +40,10 @@ export function Home() {
     }
   };
 
+  const handleLanguage = () => {
+    language ? setLanguage() : setLanguage("ko");
+  };
+
   const handleDetail = (item) => {
     setDisable(true);
     setDetail(item);
@@ -46,9 +52,10 @@ export function Home() {
   useEffect(() => {
     setDisable(false);
     handleLoad({
+      language,
       page,
     });
-  }, [page]);
+  }, [page, language]);
 
   return (
     <>
@@ -66,8 +73,9 @@ export function Home() {
         </div>
       </div>
       <div className="buttonGroup">
-        <button onClick={prevPage}>이전 페이지</button>
-        <button onClick={nextPage}>다음 페이지</button>
+        <Button onClick={prevPage}>이전 페이지</Button>
+        <Button onClick={handleLanguage}>언어 교체</Button>
+        <Button onClick={nextPage}>다음 페이지</Button>
       </div>
       <Footer />
       {disable && <Popup detail={detail} setDisable={setDisable} />}

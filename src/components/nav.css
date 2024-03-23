@@ -1,11 +1,22 @@
+@import url("./font.css");
+
 .navBar {
-  height: 50px;
+  font-family: Pretendard-Regular;
+  height: 80px;
   width: 100%;
-  background-color: #e72929;
+  background-color: #e84545;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
+  padding: 30px;
+}
+
+.logo {
+  font-family: Pretendard-Regular;
+  font-weight: 900;
+  font-size: 40px;
 }
