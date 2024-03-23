@@ -4,12 +4,14 @@ import MovieContent from "./MovieContent";
 import Nav from "./Nav.js";
 import "./home.css";
 import Footer from "./Footer.js";
+import Popup from "./Popup.js";
 
 export function Home() {
-  const [language, setLanguage] = useState("en");
   const [page, setPage] = useState(1);
   const [movieChart, setMovieChart] = useState([]);
   const [rank, setRank] = useState(0);
+  const [detail, setDetail] = useState({});
+  const [disable, setDisable] = useState(false);
 
   const handleLoad = async (options) => {
     let result;
@@ -36,10 +38,14 @@ export function Home() {
     }
   };
 
+  const handleDetail = (item) => {
+    setDisable(true);
+    setDetail(item);
+  };
+
   useEffect(() => {
-    console.log(1);
+    setDisable(false);
     handleLoad({
-      language,
       page,
     });
   }, [page]);
@@ -50,7 +56,12 @@ export function Home() {
       <div className="contentContainer">
         <div className="mainContents">
           {movieChart.map((item, index) => (
-            <MovieContent item={item} key={item.id} rank={index + rank + 1} />
+            <MovieContent
+              item={item}
+              key={item.id}
+              rank={index + rank + 1}
+              handleDetail={handleDetail}
+            />
           ))}
         </div>
       </div>
@@ -59,6 +70,7 @@ export function Home() {
         <button onClick={nextPage}>다음 페이지</button>
       </div>
       <Footer />
+      {disable && <Popup detail={detail} setDisable={setDisable} />}
     </>
   );
 }

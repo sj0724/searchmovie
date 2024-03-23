@@ -1,7 +1,7 @@
-export async function getList({ language, page }) {
+export async function getList({ language = "en", page }) {
   const query = `language=${language}&page=${page}`;
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?${query}`,
+    `https://api.themoviedb.org/3/movie/popular?${query}`,
     {
       method: "GET",
       headers: {

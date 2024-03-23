@@ -20,12 +20,14 @@ p {
 
 .rank {
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 700;
   top: 5px;
   left: 10px;
   width: 100%;
   position: absolute;
   color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .detail {
