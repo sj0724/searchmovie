@@ -59,7 +59,7 @@ export function Home() {
 
   return (
     <>
-      <Nav />
+      <Nav setMovieChart={setMovieChart} />
       <div className="contentContainer">
         <div className="mainContents">
           {movieChart.map((item, index) => (

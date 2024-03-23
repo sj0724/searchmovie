@@ -1,7 +1,13 @@
+@import url("./font.css");
+
 .popupContent {
-  width: 600px;
-  height: 400px;
+  font-family: Pretendard-Regular;
+  width: 700px;
+  height: 500px;
   background-color: white;
+  display: flex;
+  border-radius: 15px;
+  position: relative;
 }
 
 .bg {
@@ -15,4 +21,40 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.popUpPoster {
+  height: 100%;
+  border-radius: 15px 0 0 15px;
+}
+
+.popUp-detail {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.popUp-title {
+  padding-bottom: 20px;
+  font-size: 50px;
+  font-weight: 700;
+  border-bottom: 2px solid black;
+}
+
+.popUp-description {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cta-close {
+  cursor: pointer;
+  font-size: 25px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  border-radius: 8px 0 16px 0;
+  height: 40px;
+  width: 40px;
 }

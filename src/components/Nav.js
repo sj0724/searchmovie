@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import "./nav.css";
 import { searchList } from "./Api.js";
 
-function Nav() {
+function Nav({ setMovieChart }) {
   const [keyword, setKeyword] = useState();
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
     setKeyword(e.target.search.value);
-    searchList({ keyword });
+    let result;
+    e.preventDefault();
+    try {
+      result = await searchList(keyword);
+    } catch (error) {
+      console.log(error);
+    }
+    const { results } = result;
+    setMovieChart(results);
   };
   return (
     <div className="navBar">

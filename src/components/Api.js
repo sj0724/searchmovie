@@ -15,7 +15,7 @@ export async function getList({ language = "en", page }) {
   return body;
 }
 
-export async function searchList({ keyword }) {
+export async function searchList(keyword) {
   const query = `query=${keyword}`;
   const response = await fetch(
     `https://api.themoviedb.org/3/search/movie?${query}&api_key=23346acd7f707faa560f0cb43b7ceb43`,
@@ -31,3 +31,5 @@ export async function searchList({ keyword }) {
   const body = await response.json();
   return body;
 }
+
+export const imageUrl = "https://image.tmdb.org/t/p/w500";

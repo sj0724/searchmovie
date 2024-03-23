@@ -1,7 +1,6 @@
 import React from "react";
 import "./moviecontent.css";
-
-const imageUrl = "https://image.tmdb.org/t/p/w500";
+import { imageUrl } from "./Api";
 
 function MovieContent({ item, rank, handleDetail }) {
   const settingDetail = () => handleDetail(item);
