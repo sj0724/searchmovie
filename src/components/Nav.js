@@ -4,8 +4,12 @@ import { searchList } from "./Api.js";
 
 function Nav({ setMovieChart }) {
   const [keyword, setKeyword] = useState();
+
+  const handleInput = (e) => {
+    setKeyword(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
-    setKeyword(e.target.search.value);
     let result;
     e.preventDefault();
     try {
@@ -26,7 +30,7 @@ function Nav({ setMovieChart }) {
       </div>
       <div className="search">
         <form onSubmit={handleSubmit}>
-          <input type="text" name="search"></input>
+          <input type="text" name="search" onChange={handleInput}></input>
         </form>
       </div>
     </div>

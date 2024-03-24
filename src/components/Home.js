@@ -8,6 +8,7 @@ import Popup from "./Popup.js";
 import Button from "./Button.js";
 
 export function Home() {
+  const [request, setRequest] = useState();
   const [language, setLanguage] = useState();
   const [page, setPage] = useState(1);
   const [movieChart, setMovieChart] = useState([]);
@@ -54,8 +55,9 @@ export function Home() {
     handleLoad({
       language,
       page,
+      request,
     });
-  }, [page, language]);
+  }, [page, language, request]);
 
   return (
     <>
