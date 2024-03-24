@@ -1,3 +1,5 @@
+@import url("./font.css");
+
 .mainContents {
   max-width: 1000px;
   display: flex;
@@ -9,9 +11,17 @@
 }
 
 .contentContainer {
+  font-family: Pretendard-Regular;
   margin: 40px auto 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listName {
+  font-size: 35px;
+  font-weight: 800;
 }
 
 .buttonGroup {

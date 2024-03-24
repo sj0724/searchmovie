@@ -8,7 +8,7 @@ import Popup from "./Popup.js";
 import Button from "./Button.js";
 
 export function Home() {
-  const [request, setRequest] = useState();
+  const [request, setRequest] = useState("popular");
   const [language, setLanguage] = useState();
   const [page, setPage] = useState(1);
   const [movieChart, setMovieChart] = useState([]);
@@ -61,8 +61,9 @@ export function Home() {
 
   return (
     <>
-      <Nav setMovieChart={setMovieChart} />
+      <Nav setMovieChart={setMovieChart} setRequest={setRequest} />
       <div className="contentContainer">
+        <div className="listName">{request.toUpperCase()}</div>
         <div className="mainContents">
           {movieChart.map((item, index) => (
             <MovieContent
