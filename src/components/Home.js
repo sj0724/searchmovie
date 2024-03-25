@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getList } from "./Api.js";
+import { getList, genresList } from "./Api.js";
 import MovieContent from "./MovieContent";
 import Nav from "./Nav.js";
 import "./home.css";
 import Footer from "./Footer.js";
-import Popup from "./Popup.js";
+import { Popup } from "./Popup.js";
 import Button from "./Button.js";
 
 export function Home() {
@@ -15,6 +15,7 @@ export function Home() {
   const [rank, setRank] = useState(0);
   const [detail, setDetail] = useState({});
   const [disable, setDisable] = useState(false);
+  const [categoryList, setCategoryList] = useState([]);
 
   const handleLoad = async (options) => {
     let result;
@@ -25,6 +26,18 @@ export function Home() {
     }
     const { results } = result;
     setMovieChart(results);
+  };
+
+  const setCategory = async () => {
+    let result;
+    try {
+      result = await genresList();
+    } catch (error) {
+      console.error();
+    }
+    const { genres } = result;
+    setCategoryList(genres);
+    console.log(categoryList);
   };
 
   const nextPage = () => {
@@ -57,6 +70,7 @@ export function Home() {
       page,
       request,
     });
+    setCategory();
   }, [page, language, request]);
 
   return (
@@ -81,7 +95,13 @@ export function Home() {
         <Button onClick={nextPage}>다음</Button>
       </div>
       <Footer />
-      {disable && <Popup detail={detail} setDisable={setDisable} />}
+      {disable && (
+        <Popup
+          detail={detail}
+          setDisable={setDisable}
+          categories={categoryList}
+        />
+      )}
     </>
   );
 }

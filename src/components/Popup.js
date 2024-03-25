@@ -1,7 +1,12 @@
 import { imageUrl } from "./Api";
+import { Rating } from "./Rating";
 import "./popup.css";
 
-function Popup({ detail, setDisable }) {
+export function categoryItem({ item }) {
+  return <div>{item}</div>;
+}
+
+export function Popup({ detail, setDisable, categories }) {
   const { title, overview, poster_path, vote_average } = detail;
   const handleDisable = () => setDisable(false);
 
@@ -18,12 +23,10 @@ function Popup({ detail, setDisable }) {
         />
         <div className="popUp-detail">
           <p className="popUp-title">{title}</p>
-          <p>{vote_average}</p>
+          <Rating vote_average={vote_average} />
           <p className="popUp-description">{overview}</p>
         </div>
       </div>
     </div>
   );
 }
-
-export default Popup;
