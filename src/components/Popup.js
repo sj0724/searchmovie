@@ -1,14 +1,20 @@
-import { imageUrl } from "./Api";
+import { useEffect, useState } from "react";
+import { imageUrl } from "../api/Api";
 import { Rating } from "./Rating";
 import "./popup.css";
 
-export function categoryItem({ item }) {
-  return <div>{item}</div>;
+export function CategoryItem({ item }) {
+  return (
+    <>
+      <p className="categoryName">{item}</p>
+    </>
+  );
 }
 
-export function Popup({ detail, setDisable, categories }) {
+export function Popup({ detail, setDisable, type }) {
   const { title, overview, poster_path, vote_average } = detail;
   const handleDisable = () => setDisable(false);
+  const [detailType, setDeatilType] = useState(type);
 
   return (
     <div className="bg">
@@ -25,6 +31,11 @@ export function Popup({ detail, setDisable, categories }) {
           <p className="popUp-title">{title}</p>
           <Rating vote_average={vote_average} />
           <p className="popUp-description">{overview}</p>
+          <div className="typeArea">
+            {detailType.map((item, index) => (
+              <CategoryItem item={item} key={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

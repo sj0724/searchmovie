@@ -1,6 +1,6 @@
 import React from "react";
 import "./moviecontent.css";
-import { imageUrl } from "./Api";
+import { imageUrl } from "../api/Api";
 
 function MovieContent({ item, rank, handleDetail }) {
   const settingDetail = () => handleDetail(item);

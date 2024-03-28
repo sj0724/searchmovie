@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getList, genresList } from "./Api.js";
+import { getList, genresList } from "../api/Api";
 import MovieContent from "./MovieContent";
 import Nav from "./Nav.js";
 import "./home.css";
@@ -15,7 +15,8 @@ export function Home() {
   const [rank, setRank] = useState(0);
   const [detail, setDetail] = useState({});
   const [disable, setDisable] = useState(false);
-  const [categoryList, setCategoryList] = useState([]);
+  const [categoryList, setCategoryList] = useState();
+  const [movieType, setMovieType] = useState([]);
 
   const handleLoad = async (options) => {
     let result;
@@ -28,16 +29,27 @@ export function Home() {
     setMovieChart(results);
   };
 
-  const setCategory = async () => {
+  const setCategory = async (options) => {
     let result;
     try {
-      result = await genresList();
+      result = await genresList(options);
     } catch (error) {
       console.error();
     }
     const { genres } = result;
     setCategoryList(genres);
-    console.log(categoryList);
+  };
+
+  const loof = (item) => {
+    let arr = [];
+    for (let i = 0; i < item.genre_ids.length; i++) {
+      for (let u = 0; u < categoryList.length; u++) {
+        if (item.genre_ids[i] === categoryList[u].id) {
+          arr.push(categoryList[u].name);
+        }
+      }
+    }
+    setMovieType(arr);
   };
 
   const nextPage = () => {
@@ -61,6 +73,7 @@ export function Home() {
   const handleDetail = (item) => {
     setDisable(true);
     setDetail(item);
+    loof(item);
   };
 
   useEffect(() => {
@@ -70,7 +83,7 @@ export function Home() {
       page,
       request,
     });
-    setCategory();
+    setCategory({ language });
   }, [page, language, request]);
 
   return (
@@ -100,6 +113,7 @@ export function Home() {
           detail={detail}
           setDisable={setDisable}
           categories={categoryList}
+          type={movieType}
         />
       )}
     </>

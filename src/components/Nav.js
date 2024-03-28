@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./nav.css";
-import { searchList } from "./Api.js";
+import { searchList } from "../api/Api.js";
 
 function Nav({ setMovieChart, setRequest }) {
   const [keyword, setKeyword] = useState();
