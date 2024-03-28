@@ -1,14 +1,21 @@
 import React from "react";
 import "./moviecontent.css";
-import { imageUrl } from "./Api";
+import { imageUrl } from "../api/Api";
+import EmptyArea from "./EmptyArea";
 
 function MovieContent({ item, rank, handleDetail }) {
   const settingDetail = () => handleDetail(item);
+  const { poster_path } = item;
 
   return (
     <>
       <div className="movieContent">
-        <img src={`${imageUrl}${item.poster_path}`} alt="poster" />
+        {poster_path ? (
+          <img src={`${imageUrl}${poster_path}`} alt="poster" />
+        ) : (
+          <EmptyArea item={"image"} />
+        )}
+
         <div className="rank">
           <p>{rank}</p>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./nav.css";
-import { searchList } from "./Api.js";
+import { searchList } from "../api/Api.js";
 
 function Nav({ setMovieChart, setRequest }) {
   const [keyword, setKeyword] = useState();
@@ -19,6 +19,7 @@ function Nav({ setMovieChart, setRequest }) {
     }
     const { results } = result;
     setMovieChart(results);
+    setKeyword("");
   };
 
   return (
@@ -37,7 +38,12 @@ function Nav({ setMovieChart, setRequest }) {
       </div>
       <div className="search">
         <form onSubmit={handleSubmit}>
-          <input type="text" name="search" onChange={handleInput}></input>
+          <input
+            type="text"
+            name="search"
+            onChange={handleInput}
+            value={keyword}
+          ></input>
         </form>
       </div>
     </div>

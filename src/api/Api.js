@@ -33,8 +33,8 @@ export async function searchList(keyword) {
 
 export const imageUrl = "https://image.tmdb.org/t/p/w500";
 
-export async function genresList() {
-  const response = await fetch(`${url}/genre/movie/list?language=ko`, {
+export async function genresList({ language = "en" }) {
+  const response = await fetch(`${url}/genre/movie/list?language=${language}`, {
     method: "GET",
     headers: {
       accept: "application/json",
