@@ -32,12 +32,15 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
+  width: 500px;
 }
 
 .popUp-title {
+  display: flex;
+  flex-direction: column;
   padding-bottom: 20px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   border-bottom: 2px solid black;
 }
@@ -63,6 +66,7 @@
 .typeArea {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .categoryName {

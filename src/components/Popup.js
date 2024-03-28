@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { imageUrl } from "../api/Api";
 import { Rating } from "./Rating";
 import "./popup.css";
+import EmptyArea from "./EmptyArea";
 
 export function CategoryItem({ item }) {
   return (
@@ -22,15 +23,26 @@ export function Popup({ detail, setDisable, type }) {
         <button className="cta-close" onClick={handleDisable}>
           X
         </button>
-        <img
-          className="popUpPoster"
-          src={`${imageUrl}${poster_path}`}
-          alt="poster"
-        />
+        {poster_path ? (
+          <img
+            className="popUpPoster"
+            src={`${imageUrl}${poster_path}`}
+            alt="poster"
+          />
+        ) : (
+          <EmptyArea item={"image"} />
+        )}
         <div className="popUp-detail">
-          <p className="popUp-title">{title}</p>
+          <div className="popUp-title">
+            <p>{title}</p>
+          </div>
           <Rating vote_average={vote_average} />
-          <p className="popUp-description">{overview}</p>
+          {overview ? (
+            <p className="popUp-description">{overview}</p>
+          ) : (
+            <EmptyArea item={"review"} />
+          )}
+
           <div className="typeArea">
             {detailType.map((item, index) => (
               <CategoryItem item={item} key={index} />

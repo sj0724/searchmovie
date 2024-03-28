@@ -109,12 +109,7 @@ export function Home() {
       </div>
       <Footer />
       {disable && (
-        <Popup
-          detail={detail}
-          setDisable={setDisable}
-          categories={categoryList}
-          type={movieType}
-        />
+        <Popup detail={detail} setDisable={setDisable} type={movieType} />
       )}
     </>
   );

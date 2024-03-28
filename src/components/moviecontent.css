@@ -50,6 +50,7 @@ p {
   transition: 0.2s;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
 }
 .detail:hover {
   opacity: 1;
